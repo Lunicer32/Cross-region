@@ -3,7 +3,7 @@ console.log("hi")
 function ajax(method, url) {
     return new Promise((resolve, reject) => {
         const request = new XMLHttpRequest();
-        const url = "http://localhost:8888/public/friends.json";
+        const url = "http://localhost:8888/friends.json";
         request.open(method, url);
         request.onreadystatechange = () => {
             if (request.readyState === 4) {
@@ -17,7 +17,7 @@ function ajax(method, url) {
         request.send();
     });
 }
-ajax("get", "http://localhost:8888/public/friends.json").then(response => {
+ajax("get", "http://localhost:8888/friends.json").then(response => {
     console.log("这是AJAX");
     console.log(response);
 });
@@ -40,7 +40,7 @@ function jsonp(url) {
     });
 }
 
-jsonp("http://localhost:8888/public/friends.js").then(data => {
+jsonp("http://localhost:8888/friends.js").then(data => {
     console.log(data);
 });
 

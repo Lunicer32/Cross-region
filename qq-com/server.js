@@ -35,8 +35,10 @@ var server = http.createServer(function(request, response) {
         response.end();
     } else if (path === "/friends.json") {
         response.statusCode = 200;
-        response.setHeader("Content-Type", "text/json;charset=utf-8");
+        response.setHeader("Content-Type", "text/plain;charset=utf-8");
         response.setHeader("Access-Control-Allow-Origin", "*");
+        // response.setHeader("Access-Control-Allow-Credentials", "false");
+        // response.setHeader("Access-Control-Allow-Headers", "Content-type", "Access-Control-Allow-Origin", "*");
         response.write(fs.readFileSync("./qq-com/public/friends.json"));
         response.end();
     } else if (path === "/friends.js") {

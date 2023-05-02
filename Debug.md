@@ -1,0 +1,1 @@
+If adding "public" is so confused, link in server.js need "public" may because server.js is the same level with "public" profile. When qq.js get "friends.json", it doesn't need "public" may because they're in the same profile, meanwhile gabriel.js doesn't need to add "public" to get "friends.json".
