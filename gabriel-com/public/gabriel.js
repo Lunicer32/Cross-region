@@ -3,6 +3,7 @@ console.log("hi")
 function ajax(method, url) {
     return new Promise((resolve, reject) => {
         const request = new XMLHttpRequest();
+        const url = "http://localhost:8888/public/friends.json";
         request.open(method, url);
         request.onreadystatechange = () => {
             if (request.readyState === 4) {

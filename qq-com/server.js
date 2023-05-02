@@ -36,7 +36,7 @@ var server = http.createServer(function(request, response) {
     } else if (path === "/friends.json") {
         response.statusCode = 200;
         response.setHeader("Content-Type", "text/json;charset=utf-8");
-        response.setHeader("Access-Control-Allow-Origin", "http://localhost:9990");
+        response.setHeader("Access-Control-Allow-Origin", "*");
         response.write(fs.readFileSync("./qq-com/public/friends.json"));
         response.end();
     } else if (path === "/friends.js") {
@@ -54,7 +54,6 @@ var server = http.createServer(function(request, response) {
         response.end();
     }
 
-    /******** 代码结束，下面不要看 ************/
 });
 
 server.listen(port);
