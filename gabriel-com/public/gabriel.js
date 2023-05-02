@@ -2,6 +2,7 @@ console.log("hi")
 
 function ajax(method, url) {
     return new Promise((resolve, reject) => {
+        const request = new XMLHttpRequest();
         request.open(method, url);
         request.onreadystatechange = () => {
             if (request.readyState === 4) {
@@ -15,7 +16,7 @@ function ajax(method, url) {
         request.send();
     });
 }
-ajax("get", "http://qq.com:8888/public/friends.json").then(response => {
+ajax("get", "http://localhost:8888/public/friends.json").then(response => {
     console.log("这是AJAX")
     console.log(response);
 });
@@ -38,7 +39,7 @@ function jsonp(url) {
     });
 }
 
-jsonp("http://qq.com:8888/public/friends.js").then(data => {
+jsonp("http://localhost:8888/public/friends.js").then(data => {
     console.log(data);
 });
 

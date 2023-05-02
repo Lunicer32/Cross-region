@@ -36,22 +36,17 @@ var server = http.createServer(function(request, response) {
     } else if (path === "/friends.json") {
         response.statusCode = 200;
         response.setHeader("Content-Type", "text/json;charset=utf-8");
-        response.setHeader("Access-Control-Allow-Origin", "http://gabriel.com:9990");
+        response.setHeader("Access-Control-Allow-Origin", "http://localhost:9990");
         response.write(fs.readFileSync("./qq-com/public/friends.json"));
         response.end();
     } else if (path === "/friends.js") {
-        if (request.headers["referer"].indexOf("http://gabriel.com:9990") === 0) {
-            response.statusCode = 200;
-            response.setHeader("Content-Type", "text/javascript;charset=utf-8");
-            const string = `window['{{xxx}}']({{data}}) `
-            const data = fs.readFileSync("./qq-com/public/friends.json").toString();
-            const string2 = string.replace("{{data}}", data).replace('{{xxx}}', query.callback);
-            response.write(string2);
-            response.end();
-        } else {
-            response.statusCode = 404;
-            response.end();
-        }
+        response.statusCode = 200;
+        response.setHeader("Content-Type", "text/javascript;charset=utf-8");
+        const string = `window['{{xxx}}']({{data}}) `
+        const data = fs.readFileSync("./qq-com/public/friends.json").toString();
+        const string2 = string.replace("{{data}}", data).replace('{{xxx}}', query.callback);
+        response.write(string2);
+        response.end();
     } else {
         response.statusCode = 404;
         response.setHeader("Content-Type", "text/html;charset=utf-8");
