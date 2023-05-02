@@ -17,7 +17,7 @@ function ajax(method, url) {
     });
 }
 ajax("get", "http://localhost:8888/public/friends.json").then(response => {
-    console.log("这是AJAX")
+    console.log("这是AJAX");
     console.log(response);
 });
 
